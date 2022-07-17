@@ -11,7 +11,7 @@ public class EnemyLinear : MonoBehaviour {
     void Start() {
         startPoint = transform.position;
         destination = transform.GetChild(0).transform.position;
-        speed *= GameData.enemySpeed;
+        speed *= 0.75f * GameData.enemySpeed;
     }
 
     void Update() {

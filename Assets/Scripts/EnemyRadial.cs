@@ -12,7 +12,7 @@ public class EnemyRadial : MonoBehaviour {
     void Start() {
         center = transform.parent.transform.position;
         radius = Vector2.Distance(transform.position, transform.parent.transform.position);
-        degreesPerSecond *= GameData.enemySpeed;
+        degreesPerSecond *= (0.75f * GameData.enemySpeed);
     }
 
     void Update() {
