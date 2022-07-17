@@ -23,4 +23,11 @@ public class EnemyLinear : MonoBehaviour {
         }
         transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
     }
+
+    void OnDrawGizmos() {
+        Debug.DrawRay(transform.GetChild(0).transform.position, new Vector2(0.2f, 0f), Color.red);
+        Debug.DrawRay(transform.GetChild(0).transform.position, new Vector2(-0.2f, 0f), Color.red);
+        Debug.DrawRay(transform.GetChild(0).transform.position, new Vector2(0f, 0.2f), Color.red);
+        Debug.DrawRay(transform.GetChild(0).transform.position, new Vector2(0f, -0.2f), Color.red);
+    }
 }

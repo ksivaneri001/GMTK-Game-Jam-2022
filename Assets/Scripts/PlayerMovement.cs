@@ -24,16 +24,16 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (Input.GetKey(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
             rb.AddForce(speed * transform.up * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S)) {
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
             rb.AddForce(-1 * speed * transform.up * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
             rb.AddForce(-1 * speed * transform.right * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.D)) {
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
             rb.AddForce(speed * transform.right * Time.deltaTime);
         }
     }
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (invincibilityTime > 0f) {
             invincibilityTime -= Time.deltaTime;
-            sr.color = Color.red;
+            sr.color = Color.black;
         }
         else {
             sr.color = Color.white;
@@ -60,6 +60,13 @@ public class PlayerMovement : MonoBehaviour {
 
         GUI.Label(new Rect(20, 80, 128, 128), texture);
         GUI.Label(new Rect(110, 60, 128, 128), "x " + GameData.health.ToString(), style);
+
+        GUI.Label(new Rect(20, 240, 128, 128), "Traction: " + GameData.traction.ToString(), style);
+
+        style.fontSize = 56;
+        GUI.Label(new Rect(20, 420, 128, 128), "Enemy Speed: " + GameData.enemySpeed.ToString(), style);
+
+        GUI.Label(new Rect(Screen.width - 400, 80, 128, 1000), "WASD or\nArrow Keys\nto move.", style);
     }
 
     void OnTriggerEnter2D(Collider2D col) {
