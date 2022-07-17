@@ -56,7 +56,6 @@ public class PlayerBehavior : MonoBehaviour {
                 spacesToGo--;
                 GameData.score++;
 
-                GameData.score++;
                 GameData.space = (GameData.space == 27) ? 0 : GameData.space + 1;
                 transform.parent = GameObject.Find("Board").transform.GetChild(GameData.space);
                 transform.localPosition = new Vector3(0f, 0f, transform.localPosition.z);
