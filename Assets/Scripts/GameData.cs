@@ -6,6 +6,8 @@ public class GameData : MonoBehaviour {
     public static int score;
     public static int space = 0;
     public static int health = 3;
-    public static int enemyDamage = 1;
-    public static float enemySpeed = 1f;
+    public static int traction = 5;
+    public static int enemySpeed = 3;
+
+    public static string message = "";
 }
