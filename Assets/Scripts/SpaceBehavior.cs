@@ -32,6 +32,11 @@ public class SpaceBehavior : MonoBehaviour {
             GameData.message = (modifier > 0)
             ? "Player traction\nincreased\nby " + modifier.ToString() + "."
             : "Player traction\ndecreased\nby " + (-1 * modifier).ToString() + ".";
+
+            if (GameData.traction < 1) {
+                GameData.traction = 1;
+                GameData.message = "Player traction\ncannot go\nbelow 1";
+            }
         }
         else if (type == SpaceType.Speed) {
             GameData.enemySpeed += modifier;
@@ -39,6 +44,11 @@ public class SpaceBehavior : MonoBehaviour {
             GameData.message = (modifier > 0)
             ? "Enemy speed\nincreased\nby " + modifier.ToString() + "."
             : "Enemy speed\ndecreased\nby " + (-1 * modifier).ToString() + ".";
+
+            if (GameData.enemySpeed < 1) {
+                GameData.enemySpeed = 1;
+                GameData.message = "Enemy speed\ncannot go\nbelow 1";
+            }
         }
         else if (type == SpaceType.Level) {
             SceneManager.LoadScene(scenePaths[modifier], LoadSceneMode.Single);

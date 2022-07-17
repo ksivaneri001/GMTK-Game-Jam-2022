@@ -11,6 +11,8 @@ public class PlayerBehavior : MonoBehaviour {
     private DieBehavior dieScript;
 
     void Start() {
+        transform.parent = GameObject.Find("Board").transform.GetChild(GameData.space);
+        transform.localPosition = new Vector3(0f, 0f, transform.localPosition.z);
         dieScript = GameObject.Find("Die Container").GetComponent<DieBehavior>();
 
         StartCoroutine(moveRoutine());
