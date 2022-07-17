@@ -13,7 +13,7 @@ public class SpaceBehavior : MonoBehaviour {
         Blank
     }
 
-    private string[] scenePaths = { "GameOver", "Lv 1", "Lv 2", "Lv 3", "Lv 4" };
+    private string[] scenePaths = { "Game Over", "Lv 1", "Lv 2", "Lv 3", "Lv 4" };
 
     public SpaceType type;
     public int modifier;
@@ -57,6 +57,10 @@ public class SpaceBehavior : MonoBehaviour {
         }
         else if (type == SpaceType.Blank) {
             GameData.message = "Landed on \nblank space.";
+        }
+
+        if (GameData.health == 0) {
+            SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
         }
     }
 }

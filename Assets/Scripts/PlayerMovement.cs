@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour {
         else {
             sr.color = Color.white;
         }
+        
+        if (GameData.health == 0) {
+            SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
+        }
     }
 
     void OnGUI() {
